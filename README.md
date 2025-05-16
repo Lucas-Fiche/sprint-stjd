@@ -7,7 +7,7 @@ Este documento descreve a estrutura e funcionalidades do site a ser desenvolvido
 ## 🏠 Página Inicial (Home)
 
 Apresentação geral da plataforma, com destaque para seções principais:
-- **Botões de acesso rápido** para afafv sv:
+- **Botões de acesso rápido** para:
   - Quem Somos
   - Eventos Institucionais
   - Informativos
@@ -16,7 +16,7 @@ Apresentação geral da plataforma, com destaque para seções principais:
 ---
 
 ## 🧑‍⚖️ Quem Somos
-svsdvsdvdsvsdvsdv
+
 Seção dedicada à apresentação da instituição.
 
 ### Funcionalidades:
@@ -27,7 +27,7 @@ Seção dedicada à apresentação da instituição.
   - Visão
   - Valores
   - Equipe (opcional)
-sdvsdvsdvsdvsdvsdvdfc
+
 ---
 
 ## 📅 Eventos Institucionais
@@ -37,7 +37,7 @@ Listagem dos eventos promovidos pela instituição.
 ### Estrutura recomendada:
 - **Lista ou calendário** de eventos.
 - Cada evento deve conter:
-  - Títuloafcacadad
+  - Título
   - Data e horário
   - Local
   - Descrição
@@ -50,7 +50,7 @@ Listagem dos eventos promovidos pela instituição.
 Seção voltada para publicações institucionais, notícias e atualizações.
 
 ### Funcionalidades:
-- Exibição em formato de **lista com rafdadfcafadfesumo**.
+- Exibição em formato de **lista com resumo**.
 - Ao clicar, redireciona para a página com o conteúdo completo.
 - Pode conter filtros por categoria ou data (opcional).
 
@@ -62,7 +62,7 @@ Ferramenta interativa onde os jurados podem gerar petições de defesa automatic
 
 ### Objetivo:
 Permitir que jurados interajam com uma inteligência artificial para produzir petições de defesa personalizadas.
-adfadfadfadfadfadfadf
+
 ### Fluxo da funcionalidade:
 
 1. **Acesso à funcionalidade**:
