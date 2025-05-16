@@ -20,7 +20,7 @@ Apresentação geral da plataforma, com destaque para seções principais:
 Seção dedicada à apresentação da instituição.
 
 ### Funcionalidades:
-- Exibição de informações ao **clicar** (ex.: acordeão ou modal).
+- Exibição de informações ao **clicar**.
 - Conteúdo:
   - História
   - Missão
