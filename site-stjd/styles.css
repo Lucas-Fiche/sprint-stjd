@@ -41,7 +41,6 @@ body {
     display: block;
 }
 
-
 .nav-menu {
     display: flex;
     gap: clamp(20px, 4vw, 45px);
@@ -158,11 +157,18 @@ body {
 }
 
 .character-image {
-    max-width: clamp(350px, 35vw, 550px);
-    max-height: clamp(450px, 50vh, 700px);
+    max-width: clamp(400px, 40vw, 650px);
+    max-height: clamp(520px, 60vh, 800px);
     width: auto;
     height: auto;
     object-fit: contain;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.character-image:hover {
+    transform: scale(1.05) rotate(2deg);
+    filter: drop-shadow(0 15px 35px rgba(76, 175, 80, 0.3));
 }
 
 
@@ -178,8 +184,8 @@ body {
     }
     
     .character-image {
-        max-width: clamp(300px, 30vw, 450px);
-        max-height: clamp(380px, 45vh, 550px);
+        max-width: clamp(350px, 35vw, 500px);
+        max-height: clamp(450px, 50vh, 650px);
     }
 }
 
@@ -217,8 +223,8 @@ body {
     }
 
     .character-image {
-        max-width: clamp(280px, 70vw, 380px);
-        max-height: clamp(350px, 60vh, 480px);
+        max-width: clamp(320px, 75vw, 420px);
+        max-height: clamp(400px, 65vh, 550px);
     }
 }
 
@@ -245,7 +251,7 @@ body {
     }
     
     .character-image {
-        max-width: clamp(250px, 65vw, 320px);
-        max-height: clamp(320px, 55vh, 400px);
+        max-width: clamp(280px, 70vw, 360px);
+        max-height: clamp(360px, 60vh, 450px);
     }
 }
