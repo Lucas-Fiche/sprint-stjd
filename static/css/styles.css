@@ -1,83 +1,8 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@import url('header.css');
 
-body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-    min-height: 100vh;
-    color: white;
-    overflow-x: hidden;
-}
-
-/* Header */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: clamp(20px, 3vw, 40px) clamp(30px, 5vw, 80px);
-    position: relative;
-    z-index: 10;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-size: clamp(24px, 3.5vw, 36px);
-    font-weight: bold;
-}
-
-.logo::before {
-    content: "";
-    width: clamp(30px, 4vw, 42px);
-    height: clamp(30px, 4vw, 42px);
-    background-image: url('../images/apito.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: block;
-}
-
-.logo a {
-    color: white;
-    text-decoration: none;
-}
-
-.nav-menu {
-    display: flex;
-    gap: clamp(20px, 4vw, 45px);
-    list-style: none;
-}
-
-.nav-menu a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: clamp(16px, 2vw, 22px);
-    transition: color 0.3s ease;
-}
-
-.nav-menu a:hover {
-    color: #4CAF50;
-}
-
-.social-icons {
-    display: flex;
-    gap: 15px;
-}
-
-.social-icons a {
-    color: white;
-    font-size: clamp(20px, 2.5vw, 28px);
-    text-decoration: none;
-    transition: transform 0.3s ease;
-}
-
-.social-icons a:hover {
-    transform: scale(1.2);
+:root{
+    --cor-botao-1: #dc3545;
+    --cor-botao-2: #007bff;
 }
 
 /* Main Content */
@@ -105,6 +30,11 @@ body {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
+.texto-motivacional {
+    color: var(--cor-detalhes);
+    font-weight: bold;
+}
+
 .buttons-container {
     display: flex;
     gap: 20px;
@@ -126,8 +56,8 @@ body {
 }
 
 .btn-primary {
-    background-color: #dc3545;
-    color: white;
+    background-color: var(--cor-botao-1);
+    color: var(--cor-branca);
 }
 
 .btn-primary:hover {
@@ -136,8 +66,8 @@ body {
 }
 
 .btn-secondary {
-    background-color: #007bff;
-    color: white;
+    background-color: var(--cor-botao-2);
+    color: var(--cor-branca);
 }
 
 .btn-secondary:hover {
@@ -173,7 +103,7 @@ body {
 
 .character-image:hover {
     transform: scale(1.05) rotate(2deg);
-    filter: drop-shadow(0 15px 35px rgba(76, 175, 80, 0.3));
+    filter: drop-shadow(0 15px 35px var(--cor-detalhes));
 }
 
 

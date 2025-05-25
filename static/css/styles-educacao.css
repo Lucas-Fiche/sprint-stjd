@@ -1,73 +1,4 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-    min-height: 100vh;
-    color: white;
-}
-
-/* Header */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: clamp(20px, 3vw, 40px) clamp(30px, 5vw, 80px);
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-size: clamp(24px, 3.5vw, 36px);
-    font-weight: bold;
-}
-
-.logo::before {
-    content: "";
-    width: clamp(30px, 4vw, 42px);
-    height: clamp(30px, 4vw, 42px);
-    background-image: url('../images/apito.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: block;
-}
-
-.logo a {
-     color: white; 
-     text-decoration: none; 
-}
-
-.nav-menu {
-    display: flex;
-    gap: clamp(20px, 4vw, 45px);
-    list-style: none;
-}
-
-.nav-menu a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: clamp(16px, 2vw, 22px);
-    transition: color 0.3s ease;
-}
-
-.nav-menu a:hover, .nav-menu a.active { color: #4CAF50; }
-
-.social-icons {
-    display: flex;
-    gap: 15px;
-}
-
-.social-icons a {
-    color: white;
-    font-size: clamp(20px, 2.5vw, 28px);
-    text-decoration: none;
-    transition: transform 0.3s ease;
-}
-
-.social-icons a:hover { transform: scale(1.2); }
+@import url('header.css');
 
 /* Main Content */
 .container {
@@ -79,7 +10,7 @@ body {
 
 h1 {
     font-size: clamp(2.5rem, 4vw, 3.5rem);
-    color: #4CAF50;
+    color: var(--cor-detalhes);
     margin-bottom: 10px;
 }
 
@@ -118,7 +49,7 @@ h1 {
 .info-card h3 {
     font-size: clamp(18px, 2vw, 22px);
     margin-bottom: 15px;
-    color: #4CAF50;
+    color: var(--cor-detalhes);
 }
 
 .info-card p {
