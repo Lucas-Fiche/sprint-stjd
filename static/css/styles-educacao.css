@@ -1,0 +1,192 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    min-height: 100vh;
+    color: white;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: clamp(20px, 3vw, 40px) clamp(30px, 5vw, 80px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: clamp(24px, 3.5vw, 36px);
+    font-weight: bold;
+}
+
+.logo::before {
+    content: "";
+    width: clamp(30px, 4vw, 42px);
+    height: clamp(30px, 4vw, 42px);
+    background-image: url('../images/apito.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+}
+
+.logo a {
+     color: white; 
+     text-decoration: none; 
+}
+
+.nav-menu {
+    display: flex;
+    gap: clamp(20px, 4vw, 45px);
+    list-style: none;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: clamp(16px, 2vw, 22px);
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover, .nav-menu a.active { color: #4CAF50; }
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: clamp(20px, 2.5vw, 28px);
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover { transform: scale(1.2); }
+
+/* Main Content */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: clamp(40px, 6vw, 80px) clamp(20px, 4vw, 60px);
+    text-align: center;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: clamp(16px, 2vw, 20px);
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: clamp(40px, 5vw, 60px);
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: clamp(40px, 5vw, 60px);
+}
+
+.info-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 30px 25px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(76, 175, 80, 0.2);
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.info-card h3 {
+    font-size: clamp(18px, 2vw, 22px);
+    margin-bottom: 15px;
+    color: #4CAF50;
+}
+
+.info-card p {
+    font-size: clamp(14px, 1.5vw, 16px);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: justify;
+}
+
+.cta-section {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn, .btn-secondary {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .education-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-card p {
+        text-align: left;
+    }
+    
+    .cta-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn, .btn-secondary {
+        width: 100%;
+        max-width: 280px;
+    }
+}

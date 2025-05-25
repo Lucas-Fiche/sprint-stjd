@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+
+{% block title %}Gerador de Petições - Apito Legal{% endblock %}
+
+{% set css_file = 'styles-contato.css' %}
+
+{% block content %}
+<div class="contact-container">
+    <!-- Seção de Download (aparece ANTES do título quando petição é gerada) -->
+    {% if download_link %}
+    <div class="download-section">
+        <h3>🎉 Sua petição está pronta!</h3>
+        <p>O Justinho gerou sua petição de defesa com sucesso.</p>
+        <a href="{{ download_link }}" class="download-link">
+            📄 Baixar {{ nome_arquivo }}
+        </a>
+        <p style="margin-top: 15px; font-size: 14px; color: rgba(255,255,255,0.7);">
+            ⚠️ Lembre-se de revisar o documento com um advogado especializado antes do protocolo.
+        </p>
+    </div>
+    {% endif %}
+
+    <div class="contact-header">
+        <h1 class="page-title">GERADOR AUTOMÁTICO DE PETIÇÕES</h1>
+        <p class="contact-subtitle">
+            O Justinho irá criar sua petição de defesa automaticamente usando Inteligência Artificial
+        </p>
+    </div>
+    
+    <div class="contact-content">
+        <!-- Formulário de Geração de Petições com IA -->
+        <div class="contact-form-container">
+            <div class="ai-header">
+                <h2>🤖 Justinho - Assistente Jurídico IA</h2>
+                <p class="ai-subtitle">Preencha os campos abaixo e nossa IA gerará uma petição de defesa personalizada</p>
+            </div>
+            
+            <form method="POST" class="contact-form ai-form">
+                <input type="hidden" name="gerar_peticao" value="1">
+                
+                <!-- Informações Pessoais -->
+                <div class="form-section">
+                    <h3>📋 Informações Pessoais</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nome_peticao">Nome Completo *</label>
+                            <input type="text" id="nome_peticao" name="nome_peticao" required 
+                                   placeholder="Seu nome completo">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="clube">Clube *</label>
+                            <input type="text" id="clube" name="clube" required 
+                                   placeholder="Nome do clube">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="competicao">Competição *</label>
+                        <input type="text" id="competicao" name="competicao" required 
+                               placeholder="Nome da competição onde ocorreu a acusação">
+                    </div>
+                </div>
+                
+                <!-- Detalhes da Acusação -->
+                <div class="form-section">
+                    <h3>⚖️ Detalhes da Acusação</h3>
+                    <div class="form-group">
+                        <label for="acusacao">Acusação *</label>
+                        <textarea id="acusacao" name="acusacao" rows="3" required 
+                                  placeholder="Descreva brevemente a acusação"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contexto">Contexto Detalhado *</label>
+                        <textarea id="contexto" name="contexto" rows="5" required 
+                                  placeholder="Escreva todo o contexto da situação. Seja detalhista e insira fatos que gostaria de destacar."></textarea>
+                    </div>
+                </div>
+                
+                <!-- Objetivos da Defesa -->
+                <div class="form-section">
+                    <h3>🎯 Objetivos da Defesa</h3>
+                    <div class="form-group">
+                        <label for="pedidos">O que você deseja alcançar? *</label>
+                        <textarea id="pedidos" name="pedidos" rows="4" required 
+                                  placeholder="Exemplo: arquivamento da denúncia, desclassificação da conduta, ser ouvido pessoalmente, etc."></textarea>
+                    </div>
+                </div>
+                
+                <div class="ai-warning">
+                    <p>⚠️ <strong>Importante:</strong> A petição gerada pelo Justinho é uma versão inicial que deve ser revisada por um advogado especializado antes do protocolo.</p>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary ai-btn">
+                        🤖 Gerar Petição com Justinho
+                    </button>
+                    <a href="{{ url_for('index') }}" class="btn btn-secondary">
+                        Voltar ao Início
+                    </a>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Informações Laterais -->
+        <div class="contact-info">
+            <div class="info-card">
+                <h3>Como Funciona</h3>
+                <div class="process-steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <p>Preencha seus dados pessoais e informações do caso</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <p>Descreva detalhadamente a acusação e o contexto</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <p>Justinho gera sua petição usando IA especializada</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <p>Baixe o documento e revise com um advogado</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mascot-section">
+                <img src="{{ url_for('static', filename='images/justinho.png') }}" 
+                     alt="Justinho - Mascote do Apito Legal" class="mascot-img">
+                <p>O Justinho está aqui para criar sua defesa!</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>Vantagens do Justinho</h3>
+                <ul class="advantages-list">
+                    <li>✅ Geração instantânea de petições</li>
+                    <li>✅ Baseado no CBJD e jurisprudência</li>
+                    <li>✅ Linguagem técnica especializada</li>
+                    <li>✅ Estrutura formal para tribunais</li>
+                    <li>✅ Disponível 24h por dia</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Adicionar loading ao formulário de IA
+document.querySelector('.ai-form').addEventListener('submit', function() {
+    const submitBtn = this.querySelector('.ai-btn');
+    submitBtn.innerHTML = '🔄 Justinho está trabalhando...';
+    submitBtn.disabled = true;
+});
+</script>
+{% endblock %}

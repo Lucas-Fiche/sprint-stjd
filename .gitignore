@@ -1,0 +1,35 @@
+# Ambiente virtual
+venv/
+env/
+.env
+
+# Arquivos Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Arquivos de configuração sensíveis
+config_local.py
+.env.local
+
+# Arquivos gerados
+static/peticoes/*.txt
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Flask
+instance/
+.webassets-cache
+
