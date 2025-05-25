@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Educação - Apito Legal{% endblock %}
+
+{% set css_file = 'styles-educacao.css' %}
+
+{% block content %}
+<div class="container">
+    <h1>EDUCAÇÃO</h1>
+    <p class="subtitle">Informativos sobre Direito Desportivo</p>
+    
+    <div class="education-grid">
+        {% for conteudo in conteudos %}
+        <div class="info-card">
+            <div class="icon">{{ conteudo.icone }}</div>
+            <h3>{{ conteudo.titulo }}</h3>
+            <p>{{ conteudo.descricao }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="cta-section">
+        <a href="#materiais" class="btn btn-primary">BAIXAR MATERIAIS</a>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">VOLTAR AO INÍCIO</a>
+    </div>
+</div>
+{% endblock %}

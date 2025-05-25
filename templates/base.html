@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Apito Legal - Justiça em Campo, Justiça para Todos{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/' + (css_file or 'styles.css')) }}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="{{ url_for('index') }}">APITO LEGAL</a>
+        </div>
+        
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="{{ url_for('quem_somos') }}" 
+                      class="{% if request.endpoint == 'quem_somos' %}active{% endif %}">QUEM SOMOS</a></li>
+                <li><a href="{{ url_for('eventos') }}" 
+                      class="{% if request.endpoint == 'eventos' %}active{% endif %}">EVENTOS</a></li>
+                <li><a href="{{ url_for('educacao') }}" 
+                      class="{% if request.endpoint == 'educacao' %}active{% endif %}">EDUCAÇÃO</a></li>
+            </ul>
+        </nav>
+        
+        <div class="social-icons">
+            <a href="#" aria-label="Instagram">📷</a>
+            <a href="#" aria-label="Twitter">🐦</a>
+            <a href="#" aria-label="TikTok">🎵</a>
+        </div>
+    </header>
+
+    <!-- Flash Messages reorganizadas para mostrar em ordem específica -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                <!-- Primeiro mostrar mensagens de sucesso -->
+                {% for category, message in messages %}
+                    {% if category == 'success' %}
+                        <div class="alert alert-{{ category }}">{{ message }}</div>
+                    {% endif %}
+                {% endfor %}
+                <!-- Depois mostrar mensagens de info (nome do arquivo) -->
+                {% for category, message in messages %}
+                    {% if category == 'info' %}
+                        <div class="alert alert-{{ category }}">{{ message }}</div>
+                    {% endif %}
+                {% endfor %}
+                <!-- Por último mostrar mensagens de erro -->
+                {% for category, message in messages %}
+                    {% if category == 'error' %}
+                        <div class="alert alert-{{ category }}">{{ message }}</div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

@@ -34,7 +34,7 @@ body {
     content: "";
     width: clamp(30px, 4vw, 42px);
     height: clamp(30px, 4vw, 42px);
-    background-image: url('./images/apito.png');
+    background-image: url('../images/apito.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

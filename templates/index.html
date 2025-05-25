@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="content-left">
+    <h1 class="main-title">
+        JUSTIÇA EM CAMPO,<br>
+        JUSTIÇA PARA TODOS
+    </h1>
+    
+    <div class="buttons-container">
+        <a href="{{ url_for('contato') }}" class="btn btn-primary">QUERO PEDIR DEFESA</a>
+        <a href="{{ url_for('nucleo') }}" class="btn btn-secondary">CONHEÇA O NÚCLEO</a>
+    </div>
+</div>
+
+<div class="content-right">
+    <div class="character-container">
+        <img src="{{ url_for('static', filename='images/justinho.png') }}" 
+             alt="Mascote Apito Legal" class="character-image">
+    </div>
+</div>
+{% endblock %}

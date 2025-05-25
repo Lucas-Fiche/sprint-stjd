@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block title %}Página não encontrada - Apito Legal{% endblock %}
+
+{% block content %}
+<div class="error-container">
+    <div class="error-content">
+        <div class="error-text">
+            <h1 class="error-title">404</h1>
+            <h2 class="error-subtitle">Página não encontrada</h2>
+            <p class="error-description">
+                Ops! A página que você está procurando não existe ou foi movida.
+            </p>
+            <div class="error-actions">
+                <a href="{{ url_for('index') }}" class="btn btn-primary">Voltar ao Início</a>
+                <a href="{{ url_for('contato') }}" class="btn btn-secondary">Entre em Contato</a>
+            </div>
+        </div>
+        
+        <div class="error-mascot">
+            <img src="{{ url_for('static', filename='images/justinho.png') }}" 
+                 alt="Justinho - Mascote do Apito Legal" class="mascot-img">
+            <p>O Justinho também está perdido!</p>
+        </div>
+    </div>
+</div>
+
+<style>
+.error-container {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.error-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    max-width: 800px;
+}
+
+.error-title {
+    font-size: 6rem;
+    font-weight: bold;
+    color: #dc3545;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.error-subtitle {
+    font-size: 2rem;
+    color: #4CAF50;
+    margin-bottom: 15px;
+}
+
+.error-description {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.error-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.error-mascot {
+    flex-shrink: 0;
+}
+
+.error-mascot .mascot-img {
+    max-width: 300px;
+    height: auto;
+}
+
+.error-mascot p {
+    margin-top: 15px;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 768px) {
+    .error-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .error-title {
+        font-size: 4rem;
+    }
+    
+    .error-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+</style>
+{% endblock %}

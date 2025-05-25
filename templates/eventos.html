@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Eventos - Apito Legal{% endblock %}
+
+{% set css_file = 'styles-eventos.css' %}
+
+{% block content %}
+<div class="container">
+    <h1>EVENTOS</h1>
+    <p class="subtitle">Eventos do Apito Legal em parceria com o IDP</p>
+    
+    <div class="events-grid">
+        {% for evento in eventos %}
+        <div class="event-card">
+            <div class="event-date">{{ evento.data }}</div>
+            <h3>{{ evento.titulo }}</h3>
+            <p>{{ evento.descricao }}</p>
+            <div class="event-info">📍 {{ evento.local }}</div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="cta-section">
+        <a href="#inscricoes" class="btn btn-primary">INSCREVA-SE</a>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">VOLTAR AO INÍCIO</a>
+    </div>
+</div>
+{% endblock %}
