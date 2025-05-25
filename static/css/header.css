@@ -52,6 +52,11 @@ body {
 .logo a {
     color: var(--cor-branca);
     text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.logo a:hover {
+    transform: scale(1.01);
 }
 
 .nav-menu {
