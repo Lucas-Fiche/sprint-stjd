@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --cor-branca: white;
+    --cor-principal: #1a1a2e;
+    --cor-secundaria: #16213e;
+    --cor-terciaria: #0f3460;
+    --cor-detalhes: #2ca0bd;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, var(--cor-principal) 0%, var(--cor-secundaria) 50%, var(--cor-terciaria) 100%);
+    min-height: 100vh;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: clamp(20px, 3vw, 40px) clamp(30px, 5vw, 80px);
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: clamp(24px, 3.5vw, 36px);
+    font-weight: bold;
+}
+
+.logo::before {
+    content: "";
+    width: clamp(30px, 4vw, 42px);
+    height: clamp(30px, 4vw, 42px);
+    background-image: url('../images/apito.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+}
+
+.logo a {
+    color: var(--cor-branca);
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    gap: clamp(20px, 4vw, 45px);
+    list-style: none;
+}
+
+.nav-menu a {
+    color: var(--cor-branca);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: clamp(16px, 2vw, 22px);
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--cor-detalhes);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: var(--cor-branca);
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+}
+
+.social-icons a img {
+    width: clamp(20px, 2.5vw, 28px);
+    height: clamp(20px, 2.5vw, 28px);
+    object-fit: contain;
+    display: block;
+    transition: inherit;
+} 
+

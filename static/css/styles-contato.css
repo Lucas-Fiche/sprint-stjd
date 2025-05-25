@@ -1,5 +1,11 @@
 /* Importa estilos base */
 @import url('styles.css');
+@import url('header.css');
+
+:root{
+    --cor-bordas-form: rgba(58, 150, 206, 0.2);
+    --cor-branca: white;
+}
 
 /* Contato específico */
 .contact-container {
@@ -18,7 +24,7 @@
     font-weight: bold;
     margin-bottom: clamp(20px, 3vw, 30px);
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    color: #4CAF50;
+    color: var(--cor-detalhes);
 }
 
 .contact-subtitle {
@@ -57,14 +63,14 @@
 .alert-success {
     background: rgba(76, 175, 80, 0.15);
     border: 1px solid rgba(76, 175, 80, 0.4);
-    border-left-color: #4CAF50;
-    color: #4CAF50;
+    border-left-color: rgba(89, 252, 94, 0.4);
+    color: var(--cor-branca);
 }
 
 .alert-info {
     background: rgba(33, 150, 243, 0.15);
     border: 1px solid rgba(33, 150, 243, 0.4);
-    border-left-color: #2196F3;
+    border-left-color: #175f9a;
     color: #2196F3;
 }
 
@@ -80,7 +86,7 @@
     background: rgba(255, 255, 255, 0.05);
     padding: clamp(30px, 4vw, 40px);
     border-radius: 15px;
-    border: 1px solid rgba(76, 175, 80, 0.2);
+    border: 1px solid var(--cor-bordas-form);
 }
 
 .form-row {
@@ -98,7 +104,7 @@
     display: block;
     margin-bottom: 8px;
     font-weight: 500;
-    color: #4CAF50;
+    color: var(--cor-branca);
     font-size: clamp(14px, 1.5vw, 16px);
 }
 
@@ -107,10 +113,10 @@
 .form-group textarea {
     width: 100%;
     padding: clamp(12px, 1.5vw, 15px);
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--cor-bordas-form);
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.1);
-    color: white;
+    color: var(--cor-branca);
     font-size: clamp(14px, 1.5vw, 16px);
     transition: all 0.3s ease;
 }
@@ -119,7 +125,7 @@
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #4CAF50;
+    border-color: var(--cor-detalhes);
     background: rgba(255, 255, 255, 0.15);
 }
 
@@ -130,7 +136,7 @@
 
 .form-group select option {
     background: #1a1a2e;
-    color: white;
+    color: var(--cor-branca);
 }
 
 .form-actions {
@@ -147,7 +153,7 @@
 }
 
 .ai-header h2 {
-    color: #4CAF50;
+    color: var(--cor-detalhes);
     font-size: clamp(22px, 2.5vw, 28px);
     margin-bottom: 10px;
 }
@@ -158,15 +164,15 @@
 }
 
 .form-section {
-    background: rgba(76, 175, 80, 0.05);
-    border: 1px solid rgba(76, 175, 80, 0.1);
+    background: rgba(76, 99, 175, 0.05);
+    border: 1px solid var(--cor-bordas-form);
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
 }
 
 .form-section h3 {
-    color: #4CAF50;
+    color: var(--cor-detalhes);
     font-size: clamp(16px, 1.8vw, 20px);
     margin-bottom: 15px;
     display: flex;
@@ -175,13 +181,13 @@
 }
 
 .ai-btn {
-    background: linear-gradient(135deg, #4CAF50, #45a049);
+    background: linear-gradient(135deg, #268053, #045a2f);
     position: relative;
     overflow: hidden;
 }
 
 .ai-btn:hover {
-    background: linear-gradient(135deg, #45a049, #3d8b40);
+    background: linear-gradient(135deg, #3ac17e, #068646);
 }
 
 .ai-btn:disabled {
@@ -214,11 +220,11 @@
     background: rgba(255, 255, 255, 0.05);
     padding: clamp(25px, 3vw, 30px);
     border-radius: 12px;
-    border: 1px solid rgba(76, 175, 80, 0.2);
+    border: 1px solid var(--cor-bordas-form);
 }
 
 .info-card h3 {
-    color: #4CAF50;
+    color: var(--cor-detalhes);
     font-size: clamp(18px, 2.2vw, 22px);
     margin-bottom: 20px;
     text-align: center;
@@ -237,7 +243,7 @@
 }
 
 .step-number {
-    background: linear-gradient(135deg, #4CAF50, #45a049);
+    background: linear-gradient(135deg, var(--cor-detalhes), #456fa0);
     color: white;
     width: 30px;
     height: 30px;
@@ -261,6 +267,7 @@
     background: rgba(255, 255, 255, 0.03);
     padding: 25px;
     border-radius: 12px;
+    border: 1px solid var(--cor-bordas-form);
 }
 
 .mascot-section .mascot-img {
@@ -301,7 +308,7 @@
 
 .download-link {
     display: inline-block;
-    background: linear-gradient(135deg, #4CAF50, #45a049);
+    background: linear-gradient(135deg, #268053, #045a2f);
     color: white;
     padding: 12px 25px;
     border-radius: 8px;
@@ -312,7 +319,7 @@
 }
 
 .download-link:hover {
-    background: linear-gradient(135deg, #45a049, #3d8b40);
+    background: linear-gradient(135deg, #3ac17e, #068646);
     transform: translateY(-2px);
 }
 
