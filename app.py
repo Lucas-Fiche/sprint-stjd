@@ -118,37 +118,41 @@ def create_app(config_name=None):
             for campo in campos_obrigatorios:
                 if not dados_cliente[campo]:
                     flash(f'O campo {campo.replace("_", " ").title()} é obrigatório.', 'error')
-                    return render_template('contato.html')  # Renderizar template ao invés de redirect
+                    return render_template('contato.html')
             
             # Gerar petição usando IA
             resultado_peticao = gerar_peticao(dados_cliente)
             
             if resultado_peticao['sucesso']:
-                # Salvar petição
+                nome_base = resultado_peticao['nome_arquivo']
+                
+                # Salvar petição nos dois formatos
                 resultado_arquivo = salvar_peticao(
                     resultado_peticao['conteudo'], 
-                    resultado_peticao['nome_arquivo']
+                    nome_base
                 )
                 
                 if resultado_arquivo['sucesso']:
-                    # Renderizar template com mensagem de sucesso
                     flash(f'🎉 Petição gerada com sucesso pelo Justinho!', 'success')
-                    flash(f'📄 Arquivo: {resultado_arquivo["nome_arquivo"]}', 'info')
                     
-                    # Renderizar contato.html com link de download
-                    return render_template('contato.html', 
-                                         download_link=url_for('download_peticao', 
-                                                             nome_arquivo=resultado_arquivo['nome_arquivo']),
-                                         nome_arquivo=resultado_arquivo['nome_arquivo'])
+                    # Gerar os dois links
+                    download_docx = url_for('download_peticao', nome_arquivo=resultado_arquivo['arquivos']['docx'])
+                    download_pdf = url_for('download_peticao', nome_arquivo=resultado_arquivo['arquivos']['pdf'])
+                    
+                    return render_template(
+                        'contato.html',
+                        download_docx=download_docx,
+                        download_pdf=download_pdf,
+                        nome_arquivo_base=nome_base
+                    )
                 else:
                     flash('❌ Erro ao salvar petição. Tente novamente.', 'error')
             else:
                 flash(f'❌ Erro ao gerar petição: {resultado_peticao["erro"]}', 'error')
-                
+        
         except Exception as e:
             flash(f'❌ Erro interno: {str(e)}', 'error')
         
-        # Em caso de erro, renderizar template ao invés de redirect
         return render_template('contato.html')
     
     @app.route('/download/<nome_arquivo>')
