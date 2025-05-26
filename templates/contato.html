@@ -7,13 +7,12 @@
 {% block content %}
 <div class="contact-container">
     <!-- Seção de Download (aparece ANTES do título quando petição é gerada) -->
-    {% if download_link %}
+    {% if download_docx and download_pdf %}
     <div class="download-section">
         <h3>🎉 Sua petição está pronta!</h3>
         <p>O Justinho gerou sua petição de defesa com sucesso.</p>
-        <a href="{{ download_link }}" class="download-link">
-            📄 Baixar {{ nome_arquivo }}
-        </a>
+        <a href="{{ download_docx }}" class="download-link">📄 Baixar em Word (.docx)</a><br>
+        <a href="{{ download_pdf }}" class="download-link">📄 Baixar em PDF (.pdf)</a>
         <p style="margin-top: 15px; font-size: 14px; color: rgba(255,255,255,0.7);">
             ⚠️ Lembre-se de revisar o documento com um advogado especializado antes do protocolo.
         </p>
