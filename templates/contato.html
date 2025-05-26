@@ -84,6 +84,18 @@
                         <label for="pedidos">O que você deseja alcançar? *</label>
                         <textarea id="pedidos" name="pedidos" rows="4" required 
                                   placeholder="Exemplo: arquivamento da denúncia, desclassificação da conduta, ser ouvido pessoalmente, etc."></textarea>
+
+                        <!-- Botão de ajuda para objetivos -->
+                        <button type="button" onclick="buscarObjetivosIA()" 
+                                class="btn btn-outline help-btn" 
+                                style="margin-top: 10px; background-color: #1f2b4b; color: white; border: none; padding: 8px 12px; border-radius: 5px;">
+                            ❓ Quer ajuda para saber quais são possíveis objetivos? 
+                        </button>
+
+                        <!-- Resultados inseridos dinamicamente -->
+                        <div id="sugestoes-objetivos" 
+                            style="display:none; margin-top: 10px; font-size: 14px; background-color: #1f2b4b; color: white; padding: 12px; border-radius: 6px;">
+                        </div>
                     </div>
                 </div>
                 
@@ -151,7 +163,52 @@
 document.querySelector('.ai-form').addEventListener('submit', function() {
     const submitBtn = this.querySelector('.ai-btn');
     submitBtn.innerHTML = '   Justinho está trabalhando...';
-    submitBtn.disabled = true;
+    submitBtn.disabled = true;  
 });
 </script>
+
+<script>
+async function buscarObjetivosIA() {
+    const btn = document.querySelector('.help-btn');
+    const div = document.getElementById('sugestoes-objetivos');
+
+    btn.disabled = true;
+    btn.innerText = "Justinho está pensando...";
+
+    const dados = {
+        acusacao: document.getElementById('acusacao').value,
+        contexto: document.getElementById('contexto').value
+    };
+
+    try {
+        const resposta = await fetch("/gerar_objetivos", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(dados)
+        });
+
+        const json = await resposta.json();
+
+        if (resposta.ok) {
+            let html = `<strong>Objetivos sugeridos com base no seu caso:</strong><ul style="margin-top:5px;padding-left:20px;">`;
+            for (let item of json.objetivos) {
+                html += `<li>${item}</li>`;
+            }
+            html += `</ul>`;
+            div.innerHTML = html;
+        } else {
+            div.innerHTML = `<p>❌ Erro: ${json.erro}</p>`;
+        }
+
+        div.style.display = 'block';
+    } catch (err) {
+        div.innerHTML = `<p>❌ Erro inesperado ao chamar a IA.</p>`;
+        div.style.display = 'block';
+    }
+
+    btn.disabled = false;
+    btn.innerText = "❓ Quer ajuda para saber quais são possíveis objetivos?";
+}
+</script>
+
 {% endblock %}

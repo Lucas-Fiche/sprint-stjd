@@ -171,3 +171,77 @@ def salvar_peticao(conteudo, nome_base):
             'sucesso': False,
             'erro': str(e)
         }
+    
+def gerar_objetivos_defesa(dados_cliente):
+    """Gera objetivos de defesa baseado em acusação e contexto"""
+    try:
+        acusacao = dados_cliente.get('acusacao', '')
+        contexto = dados_cliente.get('contexto', '')
+
+        # Prompt para o Gemini
+        prompt = f"""
+        Atue como um advogado experiente em Direito Desportivo no Brasil. 
+        Elabore uma lista direta e objetiva com 5 a 8 possíveis objetivos da defesa, com base na acusação e no contexto fornecidos.
+        Utilize argumentos previstos no Código Brasileiro de Justiça Desportiva (CBJD) e nos princípios do direito processual desportivo.
+        Evite repetições e use linguagem técnica acessível ao público não jurídico. 
+        Não é necessário mencionar o artigo, foque em que a lista seja entendivel para o público leigo.
+
+        Contexto do caso:
+        Acusação: {acusacao}
+        Contexto: {contexto}
+
+        A resposta deve conter apenas a lista, com cada item em uma linha, no formato:
+        - Objetivo 1
+        - Objetivo 2
+        ...
+
+        Não escreva explicações ou justificativas.
+
+        Caso os dados fornecidos não sejam suficientes para entender bem o caso ou estejam vazios, retorne a seguinte lista padrão:
+        - Arquivamento da denúncia
+        - Desclassificação da infração
+        - Aplicação de advertência simples
+        - Conversão da pena em advertência
+        - Realização de audiência de oitiva
+        - Revisão da penalidade aplicada
+        - Absolvição por ausência de provas
+        """
+
+        # Configurar cliente Gemini
+        client = genai.Client(api_key=current_app.config['GEMINI_API_KEY'])
+        
+        # Gerar conteúdo
+        response = client.models.generate_content(
+            model="gemini-2.0-flash", 
+            contents=prompt
+        )
+
+        texto = response.text.strip()
+        linhas = texto.splitlines()
+
+        objetivos = [linha.lstrip("-•*0123456789. ").strip()
+                    for linha in linhas
+                    if any(linha.strip().startswith(prefixo) for prefixo in ['- ', '* ', '•', '1.', '2.'])]
+
+        if not objetivos:
+            objetivos = [
+                "Arquivamento da denúncia",
+                "Desclassificação da infração",
+                "Aplicação de advertência simples",
+                "Conversão da pena em advertência",
+                "Realização de audiência de oitiva",
+                "Revisão da penalidade aplicada",
+                "Absolvição por ausência de provas"
+            ]
+        
+        return {
+            'sucesso': True,
+            'conteudo': objetivos,
+        }
+        
+    except Exception as e:
+        return {
+            'sucesso': False,
+            'erro': str(e),
+            'conteudo': None
+        }
