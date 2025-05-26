@@ -1,7 +1,12 @@
 import os
+from dotenv import load_dotenv
+
+# Carregar variáveis do .env apenas em desenvolvimento
+if os.path.exists('.env'):
+    load_dotenv()
 
 class Config:
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'fallback-key-development-only'
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'fallback-dev-key'
     GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY')
     
 class DevelopmentConfig(Config):
@@ -9,11 +14,6 @@ class DevelopmentConfig(Config):
     
 class ProductionConfig(Config):
     DEBUG = False
-    # Não deixar chaves expostas em produção
-    if not os.environ.get('SECRET_KEY'):
-        raise ValueError("SECRET_KEY deve ser definida em produção")
-    if not os.environ.get('GEMINI_API_KEY'):
-        raise ValueError("GEMINI_API_KEY deve ser definida em produção")
 
 config = {
     'development': DevelopmentConfig,
