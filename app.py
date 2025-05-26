@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, flash, redirect, url_for, send_file, jsonify
 from config import config
-from peticao_service import gerar_peticao, salvar_peticao
+from peticao_service import gerar_peticao, salvar_peticao, gerar_objetivos_defesa
 import os
 
 def create_app(config_name=None):
@@ -155,6 +155,18 @@ def create_app(config_name=None):
         
         return render_template('contato.html')
     
+    @app.route('/gerar_objetivos', methods=['POST'])
+    def gerar_objetivos():
+        try:
+            dados = request.json
+            resultado = gerar_objetivos_defesa(dados)
+            if resultado['sucesso']:
+                return jsonify({'objetivos': resultado['conteudo']}), 200
+            else:
+                return jsonify({'erro': resultado['erro']}), 400
+        except Exception as e:
+            return jsonify({'erro': str(e)}), 500
+
     @app.route('/download/<nome_arquivo>')
     def download_peticao(nome_arquivo):
         """Permite download da petição gerada"""
