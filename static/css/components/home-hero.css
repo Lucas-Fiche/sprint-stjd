@@ -1,0 +1,220 @@
+/* ===== SEÇÃO HERO DA HOME ===== */
+
+/* Container Principal */
+.hero-main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: clamp(60px, 8vw, 100px) clamp(20px, 4vw, 60px) clamp(40px, 6vw, 80px);
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 100vh;
+    gap: clamp(20px, 3vw, 40px);
+}
+
+/* Conteúdo da Esquerda */
+.content-left {
+    flex: 1;
+    max-width: clamp(400px, 50vw, 600px);
+}
+
+.main-title {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: bold;
+    line-height: 1.1;
+    margin-bottom: clamp(30px, 4vw, 50px);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.texto-motivacional {
+    color: var(--cor-detalhes);
+    font-weight: bold;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Botão com Scroll Suave */
+.scroll-btn {
+    scroll-behavior: smooth;
+}
+
+/* Conteúdo da Direita */
+.content-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.character-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.character-image {
+    max-width: clamp(400px, 40vw, 650px);
+    max-height: clamp(520px, 60vh, 800px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.character-image:hover {
+    transform: scale(1.05) rotate(2deg);
+    filter: drop-shadow(0 15px 35px var(--cor-detalhes));
+}
+
+/* Divisor entre Seções */
+.section-divider {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--cor-detalhes) 50%, 
+        transparent 100%);
+    margin: clamp(40px, 6vw, 80px) 0;
+    opacity: 0.6;
+}
+
+/* ===== RESPONSIVIDADE TELAS GRANDES ===== */
+
+/* Ajustes para monitores muito grandes (1920px+) */
+@media (min-width: 1920px) {
+    .hero-main {
+        padding: clamp(80px, 10vw, 140px) clamp(20px, 4vw, 60px) clamp(60px, 8vw, 100px);
+        align-items: center;
+    }
+    
+    .main-title {
+        font-size: clamp(5rem, 7vw, 6.5rem);
+        margin-bottom: clamp(50px, 6vw, 80px);
+    }
+    
+    .content-left {
+        max-width: clamp(700px, 60vw, 1000px);
+    }
+    
+    .btn {
+        padding: clamp(20px, 2.5vw, 28px) clamp(40px, 5vw, 56px);
+        font-size: clamp(18px, 2.2vw, 24px);
+    }
+    
+    .buttons-container {
+        gap: 40px;
+    }
+    
+    .character-image {
+        max-width: clamp(600px, 50vw, 900px);
+        max-height: clamp(700px, 70vh, 1100px);
+    }
+}
+
+/* Ajustes para monitores ultra grandes (2560px+) */
+@media (min-width: 2560px) {
+    .hero-main {
+        padding: clamp(100px, 12vw, 180px) clamp(5px, 1vw, 15px) clamp(80px, 10vw, 250px);
+    }
+    
+    .main-title {
+        font-size: clamp(5rem, 8vw, 6.5rem);
+        margin-bottom: clamp(60px, 7vw, 80px);
+    }
+    
+    .content-left {
+        max-width: clamp(800px, 65vw, 1200px);
+    }
+    
+    .hero-main .btn {
+        padding: clamp(24px, 3vw, 32px) clamp(48px, 6vw, 64px);
+        font-size: clamp(20px, 2.5vw, 28px);
+        flex: none;
+        width: auto;
+    }
+    
+    .hero-main .buttons-container {
+        gap: 50px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+    
+    .character-image {
+        max-width: clamp(700px, 55vw, 1100px);
+        max-height: clamp(800px, 75vh, 1300px);
+    }
+}
+
+
+/* ===== RESPONSIVIDADE TELAS PEQUENAS ===== */
+
+@media (max-width: 1024px) {
+    .hero-main {
+        gap: clamp(15px, 2.5vw, 25px);
+    }
+    
+    .content-left {
+        max-width: 55vw;
+    }
+    
+    .character-image {
+        max-width: clamp(350px, 35vw, 500px);
+        max-height: clamp(450px, 50vh, 650px);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-main {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px 30px;
+        gap: 30px;
+        min-height: 100vh;
+        align-items: center;
+    }
+
+    .content-left {
+        max-width: 100%;
+    }
+
+    .main-title {
+        font-size: clamp(2rem, 8vw, 2.8rem);
+        margin-bottom: 25px;
+    }
+
+    .buttons-container {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .character-image {
+        max-width: clamp(320px, 75vw, 420px);
+        max-height: clamp(400px, 65vh, 550px);
+    }
+}
+
+@media (max-width: 480px) {    
+    .buttons-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .character-image {
+        max-width: clamp(280px, 70vw, 360px);
+        max-height: clamp(360px, 60vh, 450px);
+    }
+}
