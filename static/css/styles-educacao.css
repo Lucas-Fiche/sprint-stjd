@@ -1,6 +1,10 @@
+/* Importar arquivos base */
+@import url('base.css');
 @import url('header.css');
 
-/* Main Content */
+/* ===== PÁGINA EDUCAÇÃO ===== */
+
+/* Layout Principal */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -8,6 +12,7 @@
     text-align: center;
 }
 
+/* Tipografia */
 h1 {
     font-size: clamp(2.5rem, 4vw, 3.5rem);
     color: var(--cor-detalhes);
@@ -20,6 +25,7 @@ h1 {
     margin-bottom: clamp(40px, 5vw, 60px);
 }
 
+/* Grid de Educação */
 .education-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -59,6 +65,7 @@ h1 {
     text-align: justify;
 }
 
+/* Seção de Call-to-Action */
 .cta-section {
     display: flex;
     gap: 20px;
@@ -66,43 +73,9 @@ h1 {
     flex-wrap: wrap;
 }
 
-.btn, .btn-secondary {
-    padding: 15px 30px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
+/* ===== RESPONSIVIDADE ===== */
 
-.btn {
-    background-color: #dc3545;
-    color: white;
-}
-
-.btn:hover {
-    background-color: #c82333;
-    transform: translateY(-2px);
-}
-
-.btn-secondary {
-    background-color: #007bff;
-    color: white;
-}
-
-.btn-secondary:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px);
-}
-
-/* Responsive */
 @media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
     .education-grid {
         grid-template-columns: 1fr;
     }
@@ -116,7 +89,7 @@ h1 {
         align-items: center;
     }
     
-    .btn, .btn-secondary {
+    .btn {
         width: 100%;
         max-width: 280px;
     }
