@@ -5,57 +5,265 @@
 {% set css_file = 'styles-quem-somos.css' %}
 
 {% block content %}
-<div class="content-wrapper">
-    <div class="content-left">
-        <h1 class="page-title">QUEM SOMOS</h1>
-        
-        <div class="text-content">
-            <p class="intro-text">
-                Somos o <strong>Apito Legal</strong>, um núcleo acadêmico de assistência jurídica desportiva voltado ao atendimento gratuito de atletas e clubes em situação de hipossuficiência. Nossa missão é garantir que ninguém enfrente a Justiça Desportiva sem defesa técnica qualificada.
-            </p>
-            
-            <p class="description-text">
-                Formado por estudantes de Direito, com orientação de professores especializados, atuamos de forma prática, ética e supervisionada, oferecendo acolhimento, elaboração de defesas e participação em audiências perante o STJD e os tribunais desportivos locais.
-            </p>
-            
-            <p class="mission-text">
-                Além da prática jurídica, buscamos formar uma nova geração de profissionais comprometidos com a equidade, o jogo limpo e o acesso à justiça no esporte.
-            </p>
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1 class="hero-title">QUEM SOMOS</h1>
+            <p class="hero-subtitle">Justiça Desportiva Acessível para Todos</p>
         </div>
-        
-        <div class="cta-section">
-            <a href="{{ url_for('contato') }}" class="btn btn-primary">SOLICITE ASSISTÊNCIA</a>
-            <a href="{{ url_for('index') }}" class="btn btn-secondary">VOLTAR AO INÍCIO</a>
-        </div>
-    </div>
-    
-    <div class="content-right">
-        <div class="character-container">
+        <div class="hero-image">
             <img src="{{ url_for('static', filename='images/justinho.png') }}" 
-                 alt="Mascote Apito Legal" class="character-image">
+                 alt="Mascote Apito Legal" class="mascot-image">
         </div>
     </div>
-</div>
+    <div class="scroll-indicator">
+        <div class="scroll-arrow">↓</div>
+    </div>
+</section>
 
-<section class="highlights-section">
-    <div class="highlights-container">
-        <div class="highlight-item">
-            <div class="highlight-icon">⚖️</div>
-            <h3>Assistência Gratuita</h3>
-            <p>Atendimento jurídico especializado sem custos para atletas e clubes</p>
-        </div>
-        
-        <div class="highlight-item">
-            <div class="highlight-icon">🎓</div>
-            <h3>Formação Acadêmica</h3>
-            <p>Estudantes supervisionados por professores especializados em Direito Desportivo</p>
-        </div>
-        
-        <div class="highlight-item">
-            <div class="highlight-icon">🏆</div>
-            <h3>Justiça no Esporte</h3>
-            <p>Compromisso com a equidade e o jogo limpo no ambiente desportivo</p>
+<!-- About Section -->
+<section class="about-section">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-text">
+                <h2 class="section-title">Nossa Missão</h2>
+                <div class="text-block">
+                    <p class="highlight-text">
+                        Somos o <strong>Apito Legal</strong>, um núcleo acadêmico de assistência jurídica desportiva voltado ao atendimento gratuito de atletas e clubes em situação de hipossuficiência.
+                    </p>
+                    <p>
+                        Nossa missão é garantir que ninguém enfrente a Justiça Desportiva sem defesa técnica qualificada.
+                    </p>
+                </div>
+            </div>
+            <div class="about-image">
+                <div class="image-placeholder">
+                    <img src="{{ url_for('static', filename='images/equipe-placeholder.png') }}" 
+                         alt="Equipe Apito Legal" class="team-image">
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
+<!-- Instagram Reels Section -->
+<section class="video-section">
+    <div class="container">
+        <h2 class="section-title center">Conheça Nossa História</h2>
+        <div class="instagram-container">
+            <div class="instagram-embed">
+                <!-- Substituir pela URL real do reels do Instagram -->
+                <blockquote class="instagram-media" 
+                            data-instgrm-permalink="https://www.instagram.com/reel/DJkUywOpmFa/?utm_source=ig_embed&amp;utm_campaign=loading" 
+                            data-instgrm-version="14">
+                    <div class="instagram-placeholder">
+                        <div class="instagram-icon">
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="white" stroke-width="2"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="white" stroke-width="2"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="white" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <p class="instagram-description">Veja nosso reels no Instagram</p>
+                        <p class="instagram-note">Clique para ver no Instagram</p>
+                    </div>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="services-section">
+    <div class="container">
+        <h2 class="section-title center">Como Atuamos</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">👥</div>
+                <h3>Formação Supervisionada</h3>
+                <p>Formado por estudantes de Direito, com orientação de professores especializados, atuamos de forma prática, ética e supervisionada.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚖️</div>
+                <h3>Assistência Completa</h3>
+                <p>Oferecemos acolhimento, elaboração de defesas e participação em audiências perante o STJD e os tribunais desportivos locais.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>Formação de Profissionais</h3>
+                <p>Além da prática jurídica, buscamos formar uma nova geração de profissionais comprometidos com a equidade, o jogo limpo e o acesso à justiça no esporte.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number" data-target="150">0</div>
+                <div class="stat-label">Casos Atendidos</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="3">0</div>
+                <div class="stat-label">Estudantes Voluntários</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="1">0</div>
+                <div class="stat-label">Professor Orientador</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="100">0</div>
+                <div class="stat-label">Gratuito</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="team-section">
+    <div class="container">
+        <h2 class="section-title center">Nossa Equipe</h2>
+        <div class="team-grid">
+            <div class="team-member professor">
+                <div class="member-photo">
+                    <img src="{{ url_for('static', filename='images/professor.png') }}" 
+                         alt="Professor Orientador" class="member-image">
+                </div>
+                <h3>Prof. [Nome]</h3>
+                <p class="member-role">Professor Orientador</p>
+                <p class="member-bio">Especialista em Direito Desportivo com mais de 10 anos de experiência em tribunais desportivos.</p>
+            </div>
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="{{ url_for('static', filename='images/estudante1.png') }}" 
+                         alt="Estudante 1" class="member-image">
+                </div>
+                <h3>[Nome Estudante]</h3>
+                <p class="member-role">Coordenador Estudantil</p>
+                <p class="member-bio">Estudante de Direito, 8º período, especializado em casos de transferência de atletas.</p>
+            </div>
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="{{ url_for('static', filename='images/estudante2.png') }}" 
+                         alt="Estudante 2" class="member-image">
+                </div>
+                <h3>[Nome Estudante]</h3>
+                <p class="member-role">Vice-Coordenador</p>
+                <p class="member-bio">Estudante de Direito, 7º período, foco em infrações disciplinares desportivas.</p>
+            </div>
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="{{ url_for('static', filename='images/estudante3.png') }}" 
+                         alt="Estudante 3" class="member-image">
+                </div>
+                <h3>[Nome Estudante]</h3>
+                <p class="member-role">Membro Ativo</p>
+                <p class="member-bio">Estudante de Direito, 6º período, atua em casos de doping e regulamentações desportivas.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Precisa de Assistência Jurídica Desportiva?</h2>
+            <p>Entre em contato conosco e receba atendimento gratuito e especializado</p>
+            <div class="cta-buttons">
+                <a href="{{ url_for('contato') }}" class="btn btn-primary">SOLICITAR ASSISTÊNCIA</a>
+                <a href="{{ url_for('eventos') }}" class="btn btn-secondary">CONHEÇA NOSSOS EVENTOS</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- JavaScript for interactions -->
+<script>
+// Script para Instagram Embed
+window.addEventListener('load', function() {
+    if (window.instgrm) {
+        window.instgrm.Embeds.process();
+    }
+});
+
+// Animação dos números das estatísticas
+function animateCounter(element, target, duration = 2000) {
+    const start = 0;
+    const increment = target / (duration / 16); // 60 FPS
+    let current = start;
+    
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            current = target;
+            clearInterval(timer);
+        }
+        
+        // Formatação especial para diferentes tipos de números
+        if (target === 100) {
+            element.textContent = Math.floor(current) + '%';
+        } else if (target >= 100) {
+            element.textContent = Math.floor(current) + '+';
+        } else {
+            element.textContent = Math.floor(current);
+        }
+    }, 16);
+}
+
+// Intersection Observer para animação quando a seção aparece
+const observerOptions = {
+    threshold: 0.3,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const statNumbers = entry.target.querySelectorAll('.stat-number');
+            statNumbers.forEach(element => {
+                const target = parseInt(element.getAttribute('data-target'));
+                animateCounter(element, target);
+            });
+            
+            // Desconectar o observer após a primeira animação
+            statsObserver.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Observar a seção de estatísticas
+    const statsSection = document.querySelector('.stats-section');
+    if (statsSection) {
+        statsObserver.observe(statsSection);
+    }
+    
+    // Smooth scrolling para o indicador de scroll
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', function() {
+            document.querySelector('.about-section').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    }
+    
+    // Manipular clique no placeholder do Instagram
+    const instagramPlaceholder = document.querySelector('.instagram-placeholder');
+    if (instagramPlaceholder) {
+        instagramPlaceholder.addEventListener('click', function() {
+            // Abrir o Instagram em nova aba
+            window.open('https://www.instagram.com/apitolegal/', '_blank');
+        });
+    }
+});
+</script>
+
+<!-- Script do Instagram Embed -->
+<script async src="//www.instagram.com/embed.js"></script>
+
 {% endblock %}
