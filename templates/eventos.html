@@ -5,24 +5,207 @@
 {% set css_file = 'styles-eventos.css' %}
 
 {% block content %}
-<div class="container">
-    <h1>EVENTOS</h1>
-    <p class="subtitle">Eventos do Apito Legal em parceria com o IDP</p>
-    
-    <div class="events-grid">
-        {% for evento in eventos %}
-        <div class="event-card">
-            <div class="event-date">{{ evento.data }}</div>
-            <h3>{{ evento.titulo }}</h3>
-            <p>{{ evento.descricao }}</p>
-            <div class="event-info">📍 {{ evento.local }}</div>
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1 class="hero-title">EVENTOS</h1>
+            <p class="hero-subtitle">Eventos do Apito Legal em parceria com o IDP</p>
         </div>
-        {% endfor %}
+        <div class="hero-image">
+            <img src="{{ url_for('static', filename='images/justinho.png') }}" 
+                 alt="Mascote Apito Legal" class="mascot-image">
+        </div>
     </div>
+    <div class="scroll-indicator">
+        <div class="scroll-arrow">↓</div>
+    </div>
+</section>
 
-    <div class="cta-section">
-        <a href="#inscricoes" class="btn btn-primary">INSCREVA-SE</a>
-        <a href="{{ url_for('index') }}" class="btn btn-secondary">VOLTAR AO INÍCIO</a>
+<!-- Próximos Eventos Section -->
+<section class="events-section">
+    <div class="container">
+        <h2 class="section-title center">Próximos Eventos</h2>
+        <p class="section-subtitle">Participe dos nossos eventos educativos sobre Direito Desportivo</p>
+        
+        <div class="events-grid">
+            <!-- Evento 1 -->
+            <div class="event-card">
+                <div class="event-date">15 Jul 2025</div>
+                <h3>Workshop: Introdução ao Direito Desportivo</h3>
+                <p>Um workshop completo sobre os fundamentos do Direito Desportivo brasileiro, abordando desde a estrutura da Justiça Desportiva até casos práticos do dia a dia.</p>
+                <div class="event-details">
+                    <div class="event-info">
+                        <span>Campus IDP - Asa Sul, Brasília/DF</span>
+                    </div>
+                    <div class="event-info">
+                        <span>14h às 17h</span>
+                    </div>
+                </div>
+                <a href="#inscricoes" class="event-btn">Inscrever-se</a>
+            </div>
+
+            <!-- Evento 2 -->
+            <div class="event-card">
+                <div class="event-date">22 Jul 2025</div>
+                <h3>Palestra: Casos Práticos do STJD</h3>
+                <p>Análise de casos reais julgados pelo Superior Tribunal de Justiça Desportiva, com foco em infrações disciplinares e suas penalidades.</p>
+                <div class="event-details">
+                    <div class="event-info">
+                        <span>Auditório IDP</span>
+                    </div>
+                    <div class="event-info">
+                        <span>19h às 21h</span>
+                    </div>
+                </div>
+                <a href="#inscricoes" class="event-btn">Inscrever-se</a>
+            </div>
+
+            <!-- Evento 3 -->
+            <div class="event-card">
+                <div class="event-date">05 Ago 2025</div>
+                <h3>Mesa Redonda: Doping no Esporte</h3>
+                <p>Discussão sobre as regras antidoping, casos polêmicos e os desafios enfrentados pelos atletas na prevenção do uso de substâncias proibidas.</p>
+                <div class="event-details">
+                    <div class="event-info">
+                        <span>Sala de Conferências IDP</span>
+                    </div>
+                    <div class="event-info">
+                        <span>16h às 18h</span>
+                    </div>
+                </div>
+                <a href="#inscricoes" class="event-btn">Inscrever-se</a>
+            </div>
+
+            <!-- Evento 4 -->
+            <div class="event-card">
+                <div class="event-date">12 Ago 2025</div>
+                <h3>Curso: Contratos no Futebol</h3>
+                <p>Curso intensivo sobre contratos de trabalho desportivo, transferências de atletas e aspectos jurídicos das relações entre clubes e jogadores.</p>
+                <div class="event-details">
+                    <div class="event-info">
+                        <span>Campus IDP</span>
+                    </div>
+                    <div class="event-info">
+                        <span>9h às 16h</span>
+                    </div>
+                </div>
+                <a href="#inscricoes" class="event-btn">Inscrever-se</a>
+            </div>
+        </div>
     </div>
-</div>
+</section>
+
+<!-- Eventos Realizados Section -->
+<section class="past-events-section">
+    <div class="container">
+        <h2 class="section-title center">Eventos Realizados</h2>
+        <div class="past-events-grid">
+            <div class="past-event-card">
+                <div class="past-event-image">
+                    <div class="image-placeholder">
+                        <span class="placeholder-icon">🎓</span>
+                    </div>
+                </div>
+                <div class="past-event-content">
+                    <h4>I Seminário de Direito Desportivo</h4>
+                    <p class="past-event-date">Junho 2025</p>
+                    <p>Nosso primeiro grande evento reuniu mais de 100 participantes para discutir os principais temas do Direito Desportivo brasileiro.</p>
+                </div>
+            </div>
+
+            <div class="past-event-card">
+                <div class="past-event-image">
+                    <div class="image-placeholder">
+                        <span class="placeholder-icon">⚖️</span>
+                    </div>
+                </div>
+                <div class="past-event-content">
+                    <h4>Workshop: Justiça Desportiva na Prática</h4>
+                    <p class="past-event-date">Maio 2025</p>
+                    <p>Workshop prático com simulação de julgamentos no STJD, proporcionando experiência real aos participantes.</p>
+                </div>
+            </div>
+
+            <div class="past-event-card">
+                <div class="past-event-image">
+                    <div class="image-placeholder">
+                        <span class="placeholder-icon">🏆</span>
+                    </div>
+                </div>
+                <div class="past-event-content">
+                    <h4>Palestra: Fair Play e Ética no Esporte</h4>
+                    <p class="past-event-date">Abril 2025</p>
+                    <p>Discussão sobre a importância da ética esportiva e como o Direito pode promover o fair play nas competições.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Interessado em Participar?</h2>
+            <p>Inscreva-se em nossos eventos e amplie seus conhecimentos em Direito Desportivo</p>
+            <div class="cta-buttons">
+                <a href="#inscricoes" class="btn btn-primary">INSCREVA-SE</a>
+                <a href="{{ url_for('index') }}" class="btn btn-secondary">VOLTAR AO INÍCIO</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- JavaScript for interactions -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scrolling for scroll indicator
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', function() {
+            document.querySelector('.events-section').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    }
+    
+    // Intersection Observer for animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    // Observe cards for animation
+    document.querySelectorAll('.event-card, .past-event-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'all 0.6s ease';
+        cardObserver.observe(card);
+    });
+    
+    // Add hover effects to event cards
+    document.querySelectorAll('.event-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+});
+</script>
+
 {% endblock %}

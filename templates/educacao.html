@@ -5,23 +5,378 @@
 {% set css_file = 'styles-educacao.css' %}
 
 {% block content %}
-<div class="container">
-    <h1>EDUCAÇÃO</h1>
-    <p class="subtitle">Informativos sobre Direito Desportivo</p>
-    
-    <div class="education-grid">
-        {% for conteudo in conteudos %}
-        <div class="info-card">
-            <div class="icon">{{ conteudo.icone }}</div>
-            <h3>{{ conteudo.titulo }}</h3>
-            <p>{{ conteudo.descricao }}</p>
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1 class="hero-title">EDUCAÇÃO</h1>
+            <p class="hero-subtitle">Informativos sobre Direito Desportivo</p>
         </div>
-        {% endfor %}
+        <div class="hero-image">
+            <img src="{{ url_for('static', filename='images/justinho.png') }}" 
+                 alt="Mascote Apito Legal" class="mascot-image">
+        </div>
     </div>
+    <div class="scroll-indicator">
+        <div class="scroll-arrow">↓</div>
+    </div>
+</section>
 
-    <div class="cta-section">
-        <a href="#materiais" class="btn btn-primary">BAIXAR MATERIAIS</a>
-        <a href="{{ url_for('index') }}" class="btn btn-secondary">VOLTAR AO INÍCIO</a>
+<!-- Conceitos Fundamentais Section -->
+<section class="concepts-section">
+    <div class="container">
+        <h2 class="section-title center">Conceitos Fundamentais</h2>
+        <div class="concepts-grid">
+            <div class="concept-card featured">
+                <div class="concept-icon">⚖️</div>
+                <h3>O que é Direito Desportivo?</h3>
+                <p>O Direito Desportivo é o ramo do direito que regula as relações jurídicas decorrentes da prática esportiva. Abrange desde a organização de competições até a resolução de conflitos entre atletas, clubes e federações, garantindo que o esporte seja praticado dentro de parâmetros legais e éticos.</p>
+                <div class="concept-highlight">
+                    <strong>Principais áreas:</strong> Transferências, contratos, doping, infrações disciplinares e organização de competições.
+                </div>
+            </div>
+            
+            <div class="concept-card featured">
+                <div class="concept-icon">🏛️</div>
+                <h3>Justiça Desportiva</h3>
+                <p>A Justiça Desportiva no Brasil é exercida pelo Superior Tribunal de Justiça Desportiva (STJD) e pelos Tribunais de Justiça Desportiva (TJDs) estaduais. Estes órgãos têm competência para julgar questões relacionadas à disciplina e às competições desportivas, garantindo o fair play e a integridade do esporte.</p>
+                <div class="concept-highlight">
+                    <strong>Estrutura:</strong> STJD (nacional), TJDs (estaduais) e Comissões Disciplinares das entidades esportivas.
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</section>
+
+<!-- Legislação STJD Carousel Section -->
+<section class="legislation-section">
+    <div class="container">
+        <h2 class="section-title center">Legislação STJD</h2>
+        <p class="section-subtitle">Principais artigos do Código Brasileiro de Justiça Desportiva</p>
+        
+        <div class="carousel-container">
+            <div class="carousel-wrapper">
+                <div class="carousel-slides" id="carouselSlides">
+                    <!-- Artigo 1 -->
+                    <div class="slide active">
+                        <div class="slide-content">
+                            <div class="article-header">
+                                <span class="article-number">Art. 191</span>
+                                <h3 class="article-title">Agressão Física</h3>
+                            </div>
+                            <div class="article-body">
+                                <p class="article-text">
+                                    Agredir alguém durante a partida, prova ou equivalente.
+                                </p>
+                                <div class="penalty-box">
+                                    <span class="penalty-label">Pena:</span>
+                                    <span class="penalty-text">suspensão de 4 a 12 partidas</span>
+                                </div>
+                                <p class="article-note">
+                                    Aplicável a jogadores, técnicos e demais membros da comissão técnica
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Artigo 2 -->
+                    <div class="slide">
+                        <div class="slide-content">
+                            <div class="article-header">
+                                <span class="article-number">Art. 258</span>
+                                <h3 class="article-title">Participação Irregular</h3>
+                            </div>
+                            <div class="article-body">
+                                <p class="article-text">
+                                    Assumir qualquer conduta contrária à disciplina ou à ética desportiva.
+                                </p>
+                                <div class="penalty-box">
+                                    <span class="penalty-label">Pena:</span>
+                                    <span class="penalty-text">suspensão de 1 a 6 partidas e multa</span>
+                                </div>
+                                <p class="article-note">
+                                    Infração de natureza disciplinar mais comum nos tribunais
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Artigo 3 -->
+                    <div class="slide">
+                        <div class="slide-content">
+                            <div class="article-header">
+                                <span class="article-number">Art. 214</span>
+                                <h3 class="article-title">Doping</h3>
+                            </div>
+                            <div class="article-body">
+                                <p class="article-text">
+                                    Usar substância dopante proibida pelo COI, pela FIFA ou pela entidade internacional da modalidade.
+                                </p>
+                                <div class="penalty-box">
+                                    <span class="penalty-label">Pena:</span>
+                                    <span class="penalty-text">suspensão de 30 dias a 2 anos</span>
+                                </div>
+                                <p class="article-note">
+                                    Uma das infrações mais graves no esporte moderno
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Artigo 4 -->
+                    <div class="slide">
+                        <div class="slide-content">
+                            <div class="article-header">
+                                <span class="article-number">Art. 243-F</span>
+                                <h3 class="article-title">Manipulação de Resultados</h3>
+                            </div>
+                            <div class="article-body">
+                                <p class="article-text">
+                                    Assegurar ou tentar assegurar a ocorrência de um resultado, evento, fato ou lance específico em partida, prova ou equivalente.
+                                </p>
+                                <div class="penalty-box">
+                                    <span class="penalty-label">Pena:</span>
+                                    <span class="penalty-text">suspensão de 180 a 3.600 dias</span>
+                                </div>
+                                <p class="article-note">
+                                    Crime contra a integridade das competições esportivas
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Artigo 5 -->
+                    <div class="slide">
+                        <div class="slide-content">
+                            <div class="article-header">
+                                <span class="article-number">Art. 201</span>
+                                <h3 class="article-title">Ofensa Racial</h3>
+                            </div>
+                            <div class="article-body">
+                                <p class="article-text">
+                                    Praticar ato discriminatório, desdenhoso ou ultrajante, relacionado a preconceito de origem étnica, racial, social, religiosa ou de cor.
+                                </p>
+                                <div class="penalty-box">
+                                    <span class="penalty-label">Pena:</span>
+                                    <span class="penalty-text">suspensão de 5 a 10 partidas</span>
+                                </div>
+                                <p class="article-note">
+                                    Combate ao racismo e discriminação no esporte
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Artigo 6 -->
+                    <div class="slide">
+                        <div class="slide-content">
+                            <div class="article-header">
+                                <span class="article-number">Art. 213</span>
+                                <h3 class="article-title">Recusa ao Antidoping</h3>
+                            </div>
+                            <div class="article-body">
+                                <p class="article-text">
+                                    Deixar de cumprir as regras antidopagem ou tentar burlar seus resultados.
+                                </p>
+                                <div class="penalty-box">
+                                    <span class="penalty-label">Pena:</span>
+                                    <span class="penalty-text">suspensão de 15 dias a 2 anos</span>
+                                </div>
+                                <p class="article-note">
+                                    Equiparada ao uso de substância proibida
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Progress Bar -->
+            <div class="carousel-progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            
+            <!-- Navigation Dots -->
+            <div class="carousel-dots">
+                <button class="dot active" data-slide="0" aria-label="Artigo 1"></button>
+                <button class="dot" data-slide="1" aria-label="Artigo 2"></button>
+                <button class="dot" data-slide="2" aria-label="Artigo 3"></button>
+                <button class="dot" data-slide="3" aria-label="Artigo 4"></button>
+                <button class="dot" data-slide="4" aria-label="Artigo 5"></button>
+                <button class="dot" data-slide="5" aria-label="Artigo 6"></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Educational Resources Section -->
+<section class="resources-section">
+    <div class="container">
+        <h2 class="section-title center">Recursos Educacionais</h2>
+        <div class="resources-grid">
+            <div class="resource-card">
+                <div class="resource-icon">📚</div>
+                <h3>Materiais de Estudo</h3>
+                <p>Acesse cartilhas, guias práticos e materiais didáticos sobre Direito Desportivo elaborados pela nossa equipe.</p>
+                <a href="#materiais" class="resource-link">Ver Materiais</a>
+            </div>
+            
+            <div class="resource-card">
+                <div class="resource-icon">⚖️</div>
+                <h3>Jurisprudência</h3>
+                <p>Principais decisões dos tribunais desportivos e como elas impactam a prática esportiva atual.</p>
+                <a href="#jurisprudencia" class="resource-link">Consultar</a>
+            </div>
+            
+            <div class="resource-card">
+                <div class="resource-icon">🎓</div>
+                <h3>Capacitação</h3>
+                <p>Participe de nossos cursos e workshops sobre temas relevantes do Direito Desportivo.</p>
+                <a href="{{ url_for('eventos') }}" class="resource-link">Ver Eventos</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Precisa de Orientação Jurídica?</h2>
+            <p>Nossa equipe está pronta para esclarecer suas dúvidas sobre Direito Desportivo</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">BAIXAR MATERIAIS</a>
+                <a href="{{ url_for('index') }}" class="btn btn-secondary">VOLTAR AO INÍCIO</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- JavaScript for carousel and interactions -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const progressBar = document.getElementById('progressBar');
+    const carouselContainer = document.querySelector('.carousel-container');
+    
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    const slideInterval = 6000; // 6 segundos
+    let autoSlideTimer;
+    let progressTimer;
+    let isHovered = false;
+    
+    function updateSlide(index) {
+        // Remove active class from all elements
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        
+        // Add active class to current elements
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+        
+        currentSlide = index;
+    }
+    
+    function nextSlide() {
+        const next = (currentSlide + 1) % totalSlides;
+        updateSlide(next);
+    }
+    
+    function startProgress() {
+        progressBar.style.transition = 'none';
+        progressBar.style.width = '0%';
+        
+        // Force reflow
+        progressBar.offsetHeight;
+        
+        progressBar.style.transition = `width ${slideInterval}ms linear`;
+        progressBar.style.width = '100%';
+    }
+    
+    function resetProgress() {
+        progressBar.style.transition = 'none';
+        progressBar.style.width = '0%';
+    }
+    
+    function startAutoSlide() {
+        if (isHovered) return;
+        
+        startProgress();
+        autoSlideTimer = setTimeout(() => {
+            nextSlide();
+            startAutoSlide();
+        }, slideInterval);
+    }
+    
+    function stopAutoSlide() {
+        clearTimeout(autoSlideTimer);
+        resetProgress();
+    }
+    
+    // Add click events to dots
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            if (index !== currentSlide) {
+                stopAutoSlide();
+                updateSlide(index);
+                setTimeout(() => {
+                    if (!isHovered) {
+                        startAutoSlide();
+                    }
+                }, 500);
+            }
+        });
+    });
+    
+    // Pause on hover
+    carouselContainer.addEventListener('mouseenter', () => {
+        isHovered = true;
+        stopAutoSlide();
+    });
+    
+    carouselContainer.addEventListener('mouseleave', () => {
+        isHovered = false;
+        startAutoSlide();
+    });
+    
+    // Smooth scrolling for scroll indicator
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', function() {
+            document.querySelector('.concepts-section').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    }
+    
+    // Intersection Observer for animations
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    // Observe elements for animation
+    document.querySelectorAll('.concept-card, .resource-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'all 0.6s ease';
+        cardObserver.observe(card);
+    });
+    
+    // Start the carousel
+    startAutoSlide();
+});
+</script>
+
 {% endblock %}
